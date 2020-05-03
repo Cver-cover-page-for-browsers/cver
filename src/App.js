@@ -58,7 +58,7 @@ function App() {
   const [ theme, setTheme ] = useState('spaceGrey');
 
   return (
-    <Router>
+    <Router basename={`${process.env.PUBLIC_URL}/`}>
       <Switch>
         <Route exact path="/">
           <Main theme={theme} setTheme={setTheme}/>
