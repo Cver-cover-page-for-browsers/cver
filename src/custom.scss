@@ -41,6 +41,7 @@ $gray: #9b9b9b;
 body {
     display: flex;
     justify-content: center;
+    overflow-x: hidden;
 }
 
 .input {
@@ -60,8 +61,8 @@ body {
     flex: 1;
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
-    width: 100%;
+    justify-content: center;
+    width: 80%;
 }
 
 .footer p {
@@ -80,9 +81,19 @@ input {
     color: inherit;
 }
 
+a {
+    color: inherit;
+    text-decoration: underline;
+}
+
 ul {
     list-style-type: none;
     margin: 0px;
+}
+
+img {
+    width: 60%;
+    margin: 2em;
 }
 
 ul > li {
@@ -90,4 +101,6 @@ ul > li {
     /* You can also add some margins here to make it look prettier */
     zoom:1;
     padding-left: 15px;
+    text-decoration: underline;
+    cursor: pointer;
 }

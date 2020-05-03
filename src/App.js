@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+
+import About from './About';
 
 function useInput({ type, defaults }) {
   const [value, setValue] = useState(defaults);
@@ -25,11 +32,10 @@ const Themes = ({setTheme}) => {
   )} </ul>
 }
 
-function App() {
+function Main({theme, setTheme}) {
   const [ cverText, cverTextInput] = useInput({ type: "text", defaults: "Your cover here" });
-  const [ theme, setTheme ] = useState('spaceGrey');
 
-  console.log(document.body.style)
+
   
   return (
     <div className={theme} >
@@ -41,11 +47,28 @@ function App() {
         <Themes setTheme={setTheme}/>
       </div>
       <div className='footer'>
-        <p>Why?</p>
+        <p><Link to="/about">About</Link></p>
         <p>Made with ❤️ by <a href='https://www.vernizzis.it/'>Dave</a></p>
       </div>
     </div>
   );
+}
+
+function App() {
+  const [ theme, setTheme ] = useState('spaceGrey');
+
+  return (
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Main theme={theme} setTheme={setTheme}/>
+        </Route>
+        <Route path="/about">
+          <About theme={theme} />
+        </Route>
+      </Switch>
+    </Router>
+  )
 }
 
 export default App;
